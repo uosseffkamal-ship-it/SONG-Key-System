@@ -1,0 +1,8 @@
+{
+  "name": "song-key-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server_FINAL.js"
+  }
+}
