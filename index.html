@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#05030d">
+<title>SONG • Nexus Key System</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+:root{--bg:#05030d;--panel:rgba(13,10,27,.58);--line:rgba(255,255,255,.10);--p:#9b6cff;--c:#4ee7ff;--pk:#ff4fbe;--t:#faf8ff;--m:#9690ae;--ok:#61f2ae}
+*{box-sizing:border-box;margin:0;padding:0}html,body{min-height:100%;font-family:Cairo,Arial,sans-serif;background:var(--bg);color:var(--t)}body{overflow-x:hidden}
+button,input{font:inherit}.scene{position:fixed;inset:0;z-index:-5;overflow:hidden;background:radial-gradient(circle at 50% 15%,#26135d 0,transparent 35%),radial-gradient(circle at 80% 80%,#062e43 0,transparent 32%),#05030d}.scene canvas{position:absolute;inset:0;width:100%;height:100%}.grid{position:absolute;inset:-20%;background-image:linear-gradient(rgba(156,108,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(156,108,255,.06) 1px,transparent 1px);background-size:55px 55px;transform:perspective(600px) rotateX(62deg) translateY(30%);animation:gridMove 16s linear infinite;mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 75%,transparent)}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.27;mix-blend-mode:screen}.b1{width:380px;height:380px;background:#8b5cff;left:-150px;top:10%;animation:floatA 12s ease-in-out infinite}.b2{width:330px;height:330px;background:#00cfff;right:-130px;bottom:5%;animation:floatB 14s ease-in-out infinite}.b3{width:220px;height:220px;background:#ff32ad;right:28%;top:-90px;animation:floatC 10s ease-in-out infinite}.ring{position:absolute;width:620px;height:620px;left:50%;top:46%;transform:translate(-50%,-50%);border:1px solid rgba(130,100,255,.15);border-radius:50%;animation:spin 34s linear infinite}.ring:before,.ring:after{content:"";position:absolute;inset:55px;border:1px dashed rgba(78,231,255,.13);border-radius:50%}.ring:after{inset:120px;border-style:solid;border-color:rgba(255,79,190,.08)}
+@keyframes gridMove{to{transform:perspective(600px) rotateX(62deg) translateY(35%)}}@keyframes floatA{50%{transform:translate(150px,80px) scale(1.15)}}@keyframes floatB{50%{transform:translate(-100px,-80px) scale(.88)}}@keyframes floatC{50%{transform:translate(-100px,100px)}}@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.app{width:min(1120px,calc(100% - 28px));margin:auto;padding:22px 0 34px}.top{display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:2px}.logo{width:43px;height:43px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,var(--p),var(--pk));box-shadow:0 0 35px rgba(139,92,246,.35);font-size:13px}.live{font-size:10px;color:#8ef6c3;border:1px solid rgba(97,242,174,.18);background:rgba(97,242,174,.06);padding:8px 12px;border-radius:999px}.live:first-letter{color:var(--ok)}
+.hero{text-align:center;padding:68px 0 34px;position:relative}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:999px;color:#bdb5d7;font-size:10px;box-shadow:0 0 40px rgba(139,108,255,.12);animation:pulse 2.8s ease-in-out infinite}.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--c);box-shadow:0 0 15px var(--c)}h1{font-size:clamp(50px,11vw,105px);line-height:.95;margin:18px 0 12px;font-weight:900;letter-spacing:-5px;background:linear-gradient(100deg,#fff,#d7c9ff 38%,#9d6cff 62%,#5ceaff);-webkit-background-clip:text;color:transparent;text-shadow:0 0 55px rgba(139,108,255,.18)}.hero p{color:var(--m);font-size:13px}
+.hero h1{font-size:clamp(42px,9vw,92px);letter-spacing:0;line-height:1.18;margin:20px auto 12px;max-width:920px;word-spacing:3px;text-wrap:balance;animation:heroIn .9s cubic-bezier(.2,.8,.2,1) both}.hero h1 .hero-line{display:inline-block;white-space:nowrap;animation:heroFloat 5s ease-in-out infinite}.hero h1 .hero-line:nth-child(2){animation-delay:-2.2s}.hero-accent{position:relative}.hero-accent:after{content:"";position:absolute;left:10%;right:10%;bottom:-8px;height:2px;border-radius:99px;background:linear-gradient(90deg,transparent,#62eaff,#a98cff,transparent);opacity:.55;filter:blur(.4px);animation:linePulse 2.8s ease-in-out infinite}.hero-sub-ar{animation:subIn 1s .2s both}.hero-pills{animation:pillsIn 1s .35s both}@keyframes heroIn{from{opacity:0;transform:translateY(22px) scale(.97);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}@keyframes heroFloat{50%{transform:translateY(-4px)}}@keyframes linePulse{50%{opacity:1;transform:scaleX(1.08);box-shadow:0 0 18px rgba(98,234,255,.35)}}@keyframes subIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@keyframes pillsIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hero-accent{background:linear-gradient(100deg,#a98cff,#62eaff);-webkit-background-clip:text;color:transparent;display:inline-block;animation:accentFloat 4s ease-in-out infinite}
+.hero-sub-ar{max-width:620px;margin:15px auto 0!important;line-height:2;font-size:13px!important;color:#aaa3bc!important}
+.hero-pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:19px}
+.hero-pills span{padding:7px 11px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);border-radius:999px;color:#aaa3bd;font-size:8px;backdrop-filter:blur(10px);transition:.25s}
+.hero-pills span:hover{transform:translateY(-3px);border-color:rgba(139,108,255,.35);color:#eee;box-shadow:0 10px 30px rgba(100,70,255,.12)}
+@keyframes accentFloat{50%{filter:drop-shadow(0 0 22px rgba(98,234,255,.18));transform:translateY(-2px)}}.hero:after{content:"";position:absolute;width:280px;height:100px;left:50%;bottom:0;transform:translateX(-50%);background:rgba(125,80,255,.18);filter:blur(60px);z-index:-1}
+.layout{display:grid;grid-template-columns:1fr 310px;gap:18px;align-items:start}.card,.side-card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(25,19,48,.72),rgba(8,7,18,.55));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-radius:28px;box-shadow:0 25px 90px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.05);overflow:hidden}.card{padding:26px}.card-head{display:flex;justify-content:space-between;gap:12px;align-items:center}.label{font-size:12px;color:#d7d0e9;font-weight:800}.secure{font-size:8px;color:#8df3c3;border:1px solid rgba(97,242,174,.18);padding:6px 9px;border-radius:999px}.input-wrap{display:flex;gap:9px;margin-top:16px}.input{width:100%;height:57px;border-radius:17px;border:1px solid rgba(255,255,255,.09);outline:none;background:rgba(0,0,0,.24);color:#fff;padding:0 17px;direction:ltr;text-align:left;transition:.25s}.input:focus{border-color:rgba(139,108,255,.65);box-shadow:0 0 0 4px rgba(139,108,255,.09),0 0 35px rgba(139,108,255,.12)}.paste{width:72px;border:0;border-radius:17px;background:rgba(255,255,255,.07);color:#cfc8df;cursor:pointer}.generate{width:100%;height:58px;border:0;border-radius:17px;margin-top:11px;color:#fff;font-weight:900;cursor:pointer;background:linear-gradient(100deg,#704cff,#9a5dff 50%,#24cde9);box-shadow:0 12px 40px rgba(108,76,255,.28);transition:.25s;position:relative;overflow:hidden}.generate:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.25),transparent 70%);transform:translateX(-120%);animation:shine 2.7s infinite}.generate:hover{transform:translateY(-2px);box-shadow:0 16px 50px rgba(108,76,255,.38)}.generate:disabled{opacity:.55;cursor:wait}.verify{display:none;margin-top:16px;border:1px solid rgba(255,255,255,.08);border-radius:21px;padding:17px;background:rgba(0,0,0,.18)}.verify.show{display:block;animation:up .45s ease}.verify-line{display:flex;justify-content:space-between;font-size:10px;color:#b9b1ca}.time{color:#6ee7ff}.track{height:5px;background:rgba(255,255,255,.07);border-radius:9px;margin:13px 0 16px;overflow:hidden}.fill{width:0;height:100%;background:linear-gradient(90deg,var(--p),var(--c));box-shadow:0 0 18px rgba(78,231,255,.5);transition:width .1s}.steps{display:grid;gap:8px}.step{display:flex;align-items:center;gap:10px;color:#777187;font-size:9px}.dot{width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.06)}.step.active{color:#d8d2e4}.step.active .dot{border-color:var(--p);box-shadow:0 0 15px rgba(139,108,255,.25)}.step.done .dot{background:rgba(97,242,174,.12);border-color:rgba(97,242,174,.3);color:var(--ok)}.meta{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.meta span{padding:7px 9px;border-radius:10px;background:rgba(255,255,255,.04);color:#777287;font-size:8px}.result{display:none;text-align:center;margin-top:16px;padding:22px;border-radius:23px;border:1px solid rgba(97,242,174,.14);background:radial-gradient(circle at 50% 0,rgba(97,242,174,.08),transparent 45%),rgba(0,0,0,.17)}.result.show{display:block;animation:up .45s ease}.success{width:48px;height:48px;margin:auto;border-radius:16px;display:grid;place-items:center;background:rgba(97,242,174,.1);color:var(--ok);font-size:22px;box-shadow:0 0 35px rgba(97,242,174,.12)}.result h3{font-size:15px;margin-top:10px}.result p{font-size:9px;color:#7e788c;margin-top:3px}.key{direction:ltr;margin-top:13px;padding:13px;border-radius:13px;background:#050509;border:1px dashed rgba(139,108,255,.32);font:800 11px monospace;color:#cdbbff;word-break:break-all}.copy{margin-top:9px;height:43px;padding:0 17px;border:0;border-radius:12px;background:rgba(255,255,255,.08);color:#eee;cursor:pointer}
+.side{display:grid;gap:18px}.side-card{padding:21px}.side-title{display:flex;justify-content:space-between;align-items:center}.side-title b{font-size:12px}.side-title span{font-size:8px;color:var(--c)}.feature{display:flex;gap:11px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}.feature:last-child{border:0;padding-bottom:0}.ico{width:35px;height:35px;flex:0 0 auto;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(139,108,255,.2),rgba(78,231,255,.08));color:#c9b8ff}.feature b{font-size:10px}.feature p{font-size:8px;color:#777187;margin-top:2px;line-height:1.7}.mini-stat{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}.mini-stat div{padding:13px;border-radius:15px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06)}.mini-stat small{display:block;color:#686377;font-size:7px}.mini-stat strong{display:block;margin-top:4px;font-size:18px}.admin-open{width:100%;height:42px;border:1px solid rgba(139,108,255,.2);background:rgba(139,108,255,.06);color:#bcaeff;border-radius:13px;font-size:9px;cursor:pointer}.footer{text-align:center;color:#4f4b5d;font-size:8px;padding:27px 0 0}.admin-panel{display:none;position:fixed;inset:0;z-index:20}.admin-panel.show{display:block}.admin-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.68);backdrop-filter:blur(8px)}.admin-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(600px,calc(100% - 28px));max-height:90vh;overflow:auto;padding:22px;border-radius:24px;border:1px solid var(--line);background:#0d0a1b;box-shadow:0 30px 100px #000}.admin-head{display:flex;justify-content:space-between}.admin-head small{font-size:8px;color:#8e83a8}.admin-head h2{font-size:19px}.admin-close{background:rgba(255,255,255,.06);border:0;color:#fff;width:35px;height:35px;border-radius:11px;font-size:20px;cursor:pointer}.admin-status{margin-top:15px;display:flex;justify-content:space-between;padding:12px;border-radius:13px;background:rgba(97,242,174,.05);font-size:8px}.admin-status b{color:var(--ok)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:9px}.stats div{padding:12px;border-radius:13px;background:rgba(255,255,255,.04)}.stats span{display:block;font-size:7px;color:#696478}.stats strong{font-size:17px}.admin-section{margin-top:15px;border-top:1px solid rgba(255,255,255,.07);padding-top:14px}.section-title{font-size:10px;font-weight:800}.setting{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05)}.setting b{font-size:9px}.setting small{display:block;color:#666175;font-size:7px;margin-top:2px}.pill{font-size:7px;padding:5px 8px;border-radius:8px;color:#bdafff;background:rgba(139,108,255,.1)}.toggle{width:36px;height:20px;border-radius:20px;background:#282333;padding:3px}.toggle i{display:block;width:14px;height:14px;border-radius:50%;background:#777;transition:.2s}.toggle.on{background:rgba(139,108,255,.4)}.toggle.on i{transform:translateX(16px);background:#a78bfa}.admin-note{margin-top:12px;padding:12px;border-radius:12px;background:rgba(255,190,90,.04);border:1px solid rgba(255,190,90,.1)}.admin-note b{font-size:7px;color:#d5aa61}.admin-note p{font-size:7px;color:#777183;line-height:1.8;margin-top:3px}
+@keyframes shine{55%,100%{transform:translateX(120%)}}@keyframes pulse{50%{box-shadow:0 0 60px rgba(139,108,255,.22)}}@keyframes up{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.side{grid-template-columns:1fr 1fr}.hero{padding-top:52px}.stats{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.app{width:min(100% - 18px,1120px);padding-top:15px}.logo{width:38px;height:38px;border-radius:12px}.live{font-size:8px}.hero{padding:48px 0 26px}h1{font-size:58px;letter-spacing:-3px}.layout{gap:12px}.card,.side-card{border-radius:22px;padding:18px}.side{grid-template-columns:1fr}.input-wrap{gap:7px}.paste{width:62px}.ring{width:400px;height:400px}.grid{background-size:38px 38px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+
+<style id="song-ultra-css">
+/* SONG ULTRA LAYER */
+.splash{position:fixed;inset:0;z-index:50000;display:grid;place-items:center;background:#05030d;overflow:hidden;transition:opacity .7s,visibility .7s}.splash.hide{opacity:0;visibility:hidden;pointer-events:none}.splash-bg{position:absolute;inset:-20%;background:conic-gradient(from 180deg,rgba(139,92,246,.14),transparent 22%,rgba(78,231,255,.10),transparent 48%,rgba(255,79,190,.10),transparent 72%,rgba(139,92,246,.14));filter:blur(55px);animation:splashSpin 12s linear infinite}.splash-core{position:relative;text-align:center;z-index:2}.splash-logo{width:86px;height:86px;margin:auto;border-radius:27px;display:grid;place-items:center;font-weight:900;letter-spacing:2px;font-size:23px;background:linear-gradient(135deg,#8b5cff,#ff4fbe 52%,#4ee7ff);box-shadow:0 0 90px rgba(139,92,246,.4),inset 0 1px rgba(255,255,255,.35);animation:logoFloat 2.2s ease-in-out infinite}.splash-title{margin-top:18px;font-size:17px;font-weight:900;letter-spacing:4px}.splash-sub{margin-top:5px;color:#77718a;font-size:9px;letter-spacing:2px}.splash-loader{width:150px;height:3px;margin:22px auto 0;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}.splash-loader i{display:block;width:42%;height:100%;border-radius:99px;background:linear-gradient(90deg,#8b5cff,#4ee7ff);animation:loadSlide 1.15s ease-in-out infinite}
+.cursor-glow{position:fixed;z-index:-1;width:260px;height:260px;border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(139,92,246,.10),transparent 68%);filter:blur(8px);opacity:0;transition:opacity .25s}.cursor-glow.on{opacity:1}
+.hero,.card,.side-card{transform-style:preserve-3d}.tilt-ready{transition:transform .16s ease-out}.card:after,.side-card:after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(120deg,rgba(255,255,255,.09),transparent 24%,transparent 72%,rgba(78,231,255,.04));opacity:.35}.card,.side-card{position:relative}
+.live{animation:livePulse 2.2s ease-in-out infinite}.live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;margin-inline-end:6px;background:#61f2ae;box-shadow:0 0 13px #61f2ae;animation:dotPulse 1.5s infinite}.live:first-letter{color:transparent}
+.generate,.paste,.copy,.admin-open{overflow:hidden}.generate:after,.paste:after,.copy:after,.admin-open:after{content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);transform:skewX(-20deg);animation:buttonSweep 3.8s infinite}
+.generate,.paste,.copy,.admin-open{position:relative}.generate span,.paste span,.copy span,.admin-open span{position:relative;z-index:2}
+.side-card:hover{box-shadow:0 30px 100px rgba(0,0,0,.42),0 0 40px rgba(139,108,255,.08),inset 0 1px rgba(255,255,255,.06)}
+.metric-live{display:flex;align-items:center;gap:7px;margin-top:12px;color:#777187;font-size:8px}.metric-live i{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 10px var(--ok)}
+.toast{position:fixed;left:50%;bottom:22px;z-index:45000;transform:translate(-50%,20px);opacity:0;pointer-events:none;padding:10px 15px;border:1px solid rgba(139,108,255,.25);border-radius:999px;background:rgba(10,8,20,.88);backdrop-filter:blur(14px);box-shadow:0 15px 45px rgba(0,0,0,.35);font-size:9px;color:#ddd7e9;transition:.35s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes splashSpin{to{transform:rotate(360deg)}}@keyframes logoFloat{50%{transform:translateY(-8px) rotate(2deg)}}@keyframes loadSlide{50%{transform:translateX(190%)}}@keyframes livePulse{50%{box-shadow:0 0 24px rgba(97,242,174,.07)}}@keyframes dotPulse{50%{transform:scale(1.55);opacity:.55}}@keyframes buttonSweep{0%,58%{left:-80%}78%,100%{left:140%}}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.side{grid-template-columns:1fr 1fr}.hero{padding-top:52px}.splash-logo{width:76px;height:76px}}
+@media(max-width:560px){.side{grid-template-columns:1fr}.app{width:min(100% - 18px,1120px)}.card{padding:19px;border-radius:23px}.hero{padding:42px 0 28px}h1{letter-spacing:-3px}.input-wrap{gap:7px}.paste{width:64px}.analytics-card{padding:19px}}
+@media(prefers-reduced-motion:reduce){.splash-bg,.splash-logo,.splash-loader i,.live,.live::before,.generate:after,.paste:after,.copy:after,.admin-open:after{animation:none!important}.tilt-ready{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div id="songSplash" class="splash" aria-hidden="true">
+  <div class="splash-bg"></div>
+  <div class="splash-core">
+    <div class="splash-logo">SO</div>
+    <div class="splash-title">SONG NEXUS</div>
+    <div class="splash-sub">SECURE KEY ACCESS</div>
+    <div class="splash-loader"><i></i></div>
+  </div>
+</div>
+<div id="cursorGlow" class="cursor-glow"></div>
+<div id="songToast" class="toast">تم</div>
+
+<div class="scene"><canvas id="spaceCanvas"></canvas><div class="grid"></div><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="ring"></div></div>
+<main class="app">
+<header class="top">
+    <div class="lang-switch" aria-label="Language"><button id="langBtn" type="button" onclick="toggleLanguage()">EN</button></div>
+  <div class="brand"><div class="logo">SO</div><span>SONG</span></div><div class="live">● SYSTEM ONLINE</div></header>
+<section class="hero">
+  <div class="eyebrow"><i></i> جاهز تبدأ؟</div>
+  <h1>خُد مفتاحك<br><span class="hero-accent">وابدأ على طول</span></h1>
+  <p class="hero-sub-ar">حط رابط التحقق هنا، وإحنا نكمّل الباقي معاك بخطوات بسيطة وسريعة.</p>
+  <div class="hero-pills" aria-label="مميزات النظام">
+    <span>⚡ سريع</span><span>🛡️ محمي</span><span>✨ بسيط</span>
+  </div>
+</section>
+<div class="layout">
+<section class="card">
+<div class="card-head"><div class="label">أدخل رابط التحقق</div><div class="secure">● PROTECTED</div></div>
+<div class="input-wrap"><input id="link" class="input" placeholder="https://example.com/..." autocomplete="off"><button class="paste" onclick="pasteLink()">لصق</button></div>
+<button id="generate" class="generate" onclick="generateKey()">تحقق وإنشاء المفتاح ✦</button>
+<div id="verify" class="verify"><div class="verify-line"><span id="status">جاري بدء التحقق...</span><span id="time" class="time">0.0s</span></div><div class="track"><div id="fill" class="fill"></div></div><div class="steps"><div id="s1" class="step"><span class="dot">1</span> فحص صيغة الرابط</div><div id="s2" class="step"><span class="dot">2</span> التحقق من الطلب</div><div id="s3" class="step"><span class="dot">3</span> تجهيز المفتاح</div></div><div class="meta"><span>REQUEST <b id="requestId">—</b></span><span>LATENCY <b id="latency">—</b></span><span>SECURITY ACTIVE</span></div></div>
+<div id="result" class="result"><div class="success">✓</div><h3>تم تجهيز المفتاح</h3><p>المفتاح جاهز للاستخدام في النظام</p><div id="key" class="key">—</div><button class="copy" onclick="copyKey()">نسخ المفتاح</button></div>
+</section>
+<aside class="side">
+<div class="side-card"><div class="side-title"><b>SONG NETWORK</b><span>ONLINE</span></div><div class="mini-stat"><div><small>STATUS</small><strong>LIVE</strong></div><div><small>MODE</small><strong>FAST</strong></div></div><div class="metric-live"><i></i><span>NETWORK SIGNAL STABLE</span></div><div class="feature"><div class="ico">⚡</div><div><b>Fast Verification</b><p>تجربة تحقق سريعة بدون انتظار مصطنع طويل.</p></div></div><div class="feature"><div class="ico">◈</div><div><b>Protected Flow</b><p>واجهة تحقق منظمة مع Request ID وحالة العملية.</p></div></div><div class="feature"><div class="ico">✦</div><div><b>Premium UI</b><p>تصميم متحرك ومناسب للموبايل والكمبيوتر.</p></div></div></div>
+<div class="side-card"><div class="side-title"><b>CONTROL</b><span>ADMIN</span></div><p style="font-size:8px;color:#777187;line-height:1.8;margin:10px 0 12px">لوحة التحكم الخاصة بك مخفية عن الزوار العاديين.</p><button class="admin-open" onclick="openAdmin()">فتح لوحة الإدارة</button></div>
+</aside>
+</div>
+<footer class="footer">SONG NEXUS KEY SYSTEM • V3<button class="analytics-open" onclick="openAnalytics()" aria-label="Private analytics">•</button>
+</footer>
+</main>
+<div id="adminPanel" class="admin-panel" aria-hidden="true"><div class="admin-backdrop" onclick="closeAdmin()"></div><section class="admin-card"><div class="admin-head"><div><small>SONG CONTROL CENTER</small><h2>لوحة التحكم</h2></div><button class="admin-close" onclick="closeAdmin()">×</button></div><div class="admin-status"><span>● API STATUS</span><b id="apiState">READY</b></div><button id="adminRefresh" class="admin-open" style="margin-top:10px" onclick="refreshAdminStats()">↻ تحديث الإحصائيات</button><div class="stats"><div><span>REQUESTS</span><strong id="statRequests">0</strong></div><div><span>KEYS ISSUED</span><strong id="statKeys">0</strong></div><div><span>BLOCKED</span><strong id="statBlocked">0</strong></div><div><span>AVG LATENCY</span><strong id="statLatency">—</strong></div></div><div class="admin-section"><div class="section-title">إعدادات المفاتيح</div><div class="setting"><div><b>صلاحية المفتاح</b><small>تُدار من الـBackend عند الربط الحقيقي</small></div><span class="pill">SERVER</span></div><div class="setting"><div><b>الاستخدام مرة واحدة</b><small>One-time validation</small></div><span class="toggle on"><i></i></span></div><div class="setting"><div><b>الحماية من التكرار</b><small>Rate limiting</small></div><span class="toggle on"><i></i></span></div></div><div class="admin-note"><b>SECURITY NOTE</b><p>هذه الواجهة تجريبية حاليًا. المصادقة والمفاتيح وRate Limit الحقيقي يجب أن تكون على السيرفر.</p></div></section></div>
+<script>
+let requestCount=0,issuedCount=0,blockedCount=0,latencyTotal=0;
+function openAdmin(){document.getElementById('adminPanel').classList.add('show');updateStats()}function closeAdmin(){document.getElementById('adminPanel').classList.remove('show')}document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAdmin()});
+function updateStats(){statRequests.textContent=requestCount;statKeys.textContent=issuedCount;statBlocked.textContent=blockedCount;statLatency.textContent=requestCount?Math.round(latencyTotal/requestCount)+'ms':'—'}
+async function pasteLink(){try{link.value=await navigator.clipboard.readText()}catch{link.focus()}}
+function makeDemoKey(){return 'SONG-'+[...crypto.getRandomValues(new Uint32Array(3))].map(n=>n.toString(36).toUpperCase().padStart(7,'0')).join('-')}
+async function generateKey(){const value=link.value.trim();if(!value){link.focus();return}let valid=false;try{const u=new URL(value);valid=['http:','https:'].includes(u.protocol)&&!!u.hostname}catch{}if(!valid){blockedCount++;updateStats();link.focus();link.style.borderColor='#ff718d';setTimeout(()=>link.style.borderColor='',900);return}requestCount++;updateStats();generate.disabled=true;result.classList.remove('show');verify.classList.add('show');['s1','s2','s3'].forEach(x=>document.getElementById(x).classList.remove('done','active'));s1.classList.add('active');requestId.textContent='SO-'+Math.random().toString(36).slice(2,8).toUpperCase()+'-'+Math.floor(100+Math.random()*900);latency.textContent='—';const total=720+Math.random()*380,started=performance.now();function tick(now){const p=Math.min((now-started)/total,1);fill.style.width=p*100+'%';time.textContent=((now-started)/1000).toFixed(1)+'s';if(p>.3){s1.classList.add('done');s1.classList.remove('active');s2.classList.add('active');status.textContent='جاري التحقق من الطلب...'}if(p>.67){s2.classList.add('done');s2.classList.remove('active');s3.classList.add('active');status.textContent='جاري تجهيز المفتاح...'}if(p<1){requestAnimationFrame(tick);return}s3.classList.add('done');s3.classList.remove('active');const ms=Math.round(performance.now()-started);latencyTotal+=ms;issuedCount++;latency.textContent=ms+'ms';updateStats();status.textContent='اكتملت العملية';
+(async()=>{
+  try{
+    const r=await window.songProduction.issueServerKey(value);
+    key.textContent=r.key;
+    requestId.textContent=r.requestId||requestId.textContent;
+  }catch(e){
+    key.textContent=makeDemoKey();
+    if(window.songToast) window.songToast(window.songLang==='en'
+      ? 'Demo mode — connect the backend for real keys.'
+      : 'وضع تجريبي — وصّل الـBackend عشان المفاتيح تبقى حقيقية.');
+  }
+  setTimeout(()=>{verify.classList.remove('show');result.classList.add('show');generate.disabled=false},160);
+})();}requestAnimationFrame(tick)}
+async function copyKey(){try{await navigator.clipboard.writeText(key.textContent);const b=document.querySelector('.copy');b.textContent='✓ تم نسخ المفتاح';setTimeout(()=>b.textContent='نسخ المفتاح',1500)}catch{}}
+(()=>{const c=document.getElementById('spaceCanvas'),x=c.getContext('2d'),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let w,h,dpr,ps=[],mx=-999,my=-999;function resize(){dpr=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;c.width=w*dpr;c.height=h*dpr;c.style.width=w+'px';c.style.height=h+'px';x.setTransform(dpr,0,0,dpr,0,0);ps=Array.from({length:Math.min(150,Math.floor(w*h/9000))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.7+.2,a:Math.random()*.7+.15,s:Math.random()*.18+.03,p:Math.random()*6.28}))}function draw(t=0){x.clearRect(0,0,w,h);for(const p of ps){p.y-=p.s;if(p.y<0)p.y=h;const tw=.55+Math.sin(t*.002+p.p)*.35;x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fillStyle=`rgba(220,225,255,${p.a*tw})`;x.fill()}if(mx>-900){const g=x.createRadialGradient(mx,my,0,mx,my,220);g.addColorStop(0,'rgba(139,108,255,.10)');g.addColorStop(1,'rgba(139,108,255,0)');x.fillStyle=g;x.fillRect(mx-220,my-220,440,440)}if(!reduce)requestAnimationFrame(draw)}addEventListener('resize',resize,{passive:true});addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY},{passive:true});resize();draw()})();
+</script>
+
+<style>
+/* SONG Analytics */
+.analytics-drawer{position:fixed;inset:0;z-index:10000;display:none}.analytics-drawer.show{display:block}.analytics-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(12px)}.analytics-card{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(92vw,760px);max-height:86vh;overflow:auto;padding:24px;border:1px solid rgba(145,110,255,.28);border-radius:26px;background:rgba(9,9,20,.92);box-shadow:0 30px 100px rgba(0,0,0,.6),0 0 80px rgba(110,80,255,.12)}.analytics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.analytics-stat{padding:16px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}.analytics-stat span{display:block;font-size:10px;color:#85829b}.analytics-stat strong{display:block;font-size:28px;margin-top:7px}.analytics-note{margin-top:14px;color:#8e8ba0;font-size:11px;line-height:1.8}.analytics-open{background:none;border:0;color:#4e4a60;font:inherit;font-size:9px;cursor:pointer;margin-inline-start:8px}.analytics-close{float:left;background:none;border:0;color:#aaa;font-size:28px;cursor:pointer}@media(max-width:650px){.analytics-grid{grid-template-columns:repeat(2,1fr)}}
+
+.lang-switch{position:absolute;left:14px;top:14px;z-index:20}.lang-switch button{border:1px solid rgba(150,120,255,.28);background:rgba(255,255,255,.05);color:#fff;border-radius:12px;padding:8px 12px;font:800 11px Cairo,Arial;cursor:pointer;backdrop-filter:blur(12px);transition:.25s}.lang-switch button:hover{transform:translateY(-2px);box-shadow:0 0 22px rgba(120,90,255,.22)}
+html[dir="ltr"] body{direction:ltr}html[dir="ltr"] .top,html[dir="ltr"] .card-head,html[dir="ltr"] .verify-line{direction:ltr}html[dir="ltr"] .input{text-align:left}html[dir="ltr"] .hero,html[dir="ltr"] .card,html[dir="ltr"] .side-card{text-align:left}
+@media(max-width:600px){.lang-switch{left:10px;top:10px}.lang-switch button{padding:7px 10px}}
+
+/* FINAL HERO POLISH */
+.hero h1{width:100%;max-width:860px;margin:22px auto 14px;padding:0 10px;font-size:clamp(42px,8vw,82px);line-height:1.12;letter-spacing:0;text-align:center;direction:rtl;overflow:visible}
+.hero h1 .hero-line{display:block;width:max-content;max-width:100%;margin:0 auto;white-space:normal;line-height:1.12;letter-spacing:0;word-spacing:0;transform-origin:center;will-change:transform,opacity}
+.hero h1 .hero-line:first-child{animation:heroFloat 5.5s ease-in-out infinite}
+.hero h1 .hero-line.hero-accent{animation:heroFloat 5.5s ease-in-out -2.5s infinite}
+.hero-sub-ar{width:min(92%,650px);margin:16px auto 0!important;padding:0 8px;line-height:2.05!important;font-size:14px!important;text-align:center}
+.hero-pills{margin-top:20px}
+@media(max-width:560px){.hero{padding:38px 0 28px}.hero h1{font-size:clamp(38px,10.5vw,52px);line-height:1.16;padding:0 4px;margin:20px auto 12px}.hero h1 .hero-line{line-height:1.16;max-width:100%}.hero-sub-ar{font-size:12px!important;line-height:2!important;width:94%}.hero-pills span{font-size:8px;padding:7px 10px}}
+html[dir="ltr"] .hero h1{direction:ltr}
+html[dir="ltr"] .hero h1 .hero-line{direction:ltr}
+</style>
+<div id="analyticsDrawer" class="analytics-drawer" aria-hidden="true">
+ <div class="analytics-backdrop" onclick="closeAnalytics()"></div>
+ <section class="analytics-card">
+  <button class="analytics-close" onclick="closeAnalytics()">×</button>
+  <div style="color:#8f79ff;font-size:10px;letter-spacing:2px">SONG PRIVATE ANALYTICS</div>
+  <h2 style="margin-top:5px">إحصائيات الموقع</h2>
+  <div class="analytics-grid">
+   <div class="analytics-stat"><span>SESSION VISITS</span><strong id="aVisits">0</strong></div>
+   <div class="analytics-stat"><span>KEY REQUESTS</span><strong id="aRequests">0</strong></div>
+   <div class="analytics-stat"><span>KEYS ISSUED</span><strong id="aKeys">0</strong></div>
+   <div class="analytics-stat"><span>BLOCKED</span><strong id="aBlocked">0</strong></div>
+  </div>
+  <p class="analytics-note">العداد الحالي يسجل جلسات هذا المتصفح فقط. للعدد الحقيقي لكل زوار الموقع نحتاج ربط endpoint/قاعدة بيانات في الـBackend.</p>
+ </section>
+</div>
+<script>
+(()=>{
+ const k='song_visit_sessions_v1';
+ let visits=Number(localStorage.getItem(k)||0);
+ if(!sessionStorage.getItem('song_seen_session')){visits++;localStorage.setItem(k,visits);sessionStorage.setItem('song_seen_session','1')}
+ window.songAnalytics={visits};
+})();
+function openAnalytics(){const d=document.getElementById('analyticsDrawer');d.classList.add('show');d.setAttribute('aria-hidden','false');document.getElementById('aVisits').textContent=window.songAnalytics?.visits||0;document.getElementById('aRequests').textContent=window.requestCount||0;document.getElementById('aKeys').textContent=window.issuedCount||0;document.getElementById('aBlocked').textContent=window.blockedCount||0}
+function closeAnalytics(){const d=document.getElementById('analyticsDrawer');d.classList.remove('show');d.setAttribute('aria-hidden','true')}
+</script>
+
+
+<script id="song-ultra-js">
+(()=>{
+  const splash=document.getElementById('songSplash');
+  const glow=document.getElementById('cursorGlow');
+  const toast=document.getElementById('songToast');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const start=()=>setTimeout(()=>splash?.classList.add('hide'), reduce?150:850);
+  if(document.readyState==='complete') start(); else addEventListener('load',start,{once:true});
+  let toastTimer;
+  window.songToast=(msg)=>{if(!toast)return;toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),1800)};
+  if(!reduce && matchMedia('(pointer:fine)').matches){
+    addEventListener('pointermove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';glow.classList.add('on')},{passive:true});
+    addEventListener('pointerleave',()=>glow.classList.remove('on'),{passive:true});
+    document.querySelectorAll('.card,.side-card').forEach(el=>{
+      el.classList.add('tilt-ready');
+      el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(900px) rotateX(${(-y*2.2).toFixed(2)}deg) rotateY(${(x*2.8).toFixed(2)}deg) translateY(-1px)`},{passive:true});
+      el.addEventListener('pointerleave',()=>{el.style.transform='';},{passive:true});
+    });
+  }
+  const originalCopy=window.copyKey;
+  if(typeof originalCopy==='function') window.copyKey=async function(){await originalCopy();songToast('تم نسخ المفتاح بنجاح ✓')};
+  document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();document.getElementById('link')?.focus();songToast('تم تفعيل حقل الرابط');}});
+})();
+</script>
+
+
+<script id="song-language">
+(()=>{
+ const T={
+  ar:{badge:'جاهز تبدأ؟',hero:['خُد مفتاحك','وابدأ دلوقتي'],sub:'حط رابط التحقق هنا، وإحنا نكمّل الباقي معاك بخطوات بسيطة وسريعة.',input:'أدخل رابط التحقق',protected:'● PROTECTED',paste:'لصق',generate:'تحقق وإنشاء المفتاح ✦',start:'جاري بدء التحقق...',s1:'فحص صيغة الرابط',s2:'التحقق من الطلب',s3:'تجهيز المفتاح',ready:'تم تجهيز المفتاح',readySub:'المفتاح جاهز للاستخدام في النظام',copy:'نسخ المفتاح',network:'SONG NETWORK',online:'ONLINE',status:'STATUS',live:'LIVE',mode:'MODE',fast:'FAST',signal:'NETWORK SIGNAL STABLE',fastTitle:'تحقق سريع',fastText:'تجربة تحقق سريعة من غير انتظار مالوش لازمة.',protectedTitle:'تدفق محمي',protectedText:'خطوات واضحة مع رقم طلب وحالة مباشرة.',premiumTitle:'واجهة فخمة',premiumText:'تصميم متحرك ومتظبط للموبايل والكمبيوتر.',control:'CONTROL',admin:'ADMIN',adminText:'لوحة التحكم الخاصة بيك مخفية عن الزوار العاديين.',openAdmin:'فتح لوحة الإدارة',system:'● SYSTEM ONLINE',lang:'EN'},
+  en:{badge:'READY TO START?',hero:['GET YOUR KEY','START RIGHT NOW'],sub:'Drop your verification link here and we’ll handle the rest with a simple, fast flow.',input:'Enter verification link',protected:'● PROTECTED',paste:'Paste',generate:'Verify & Generate Key ✦',start:'Starting verification...',s1:'Checking URL format',s2:'Verifying request',s3:'Preparing key',ready:'Key ready',readySub:'Your key is ready to use in the system',copy:'Copy Key',network:'SONG NETWORK',online:'ONLINE',status:'STATUS',live:'LIVE',mode:'MODE',fast:'FAST',signal:'NETWORK SIGNAL STABLE',fastTitle:'Fast Verification',fastText:'A fast verification flow without unnecessary waiting.',protectedTitle:'Protected Flow',protectedText:'Clear steps with a request ID and live status.',premiumTitle:'Premium UI',premiumText:'Animated and responsive on mobile and desktop.',control:'CONTROL',admin:'ADMIN',adminText:'Your control panel is hidden from regular visitors.',openAdmin:'Open Admin Panel',system:'● SYSTEM ONLINE',lang:'AR'}
+ };
+ window.songLang=localStorage.getItem('song_lang')||'ar';
+ function set(sel,txt){const e=document.querySelector(sel);if(e)e.textContent=txt}
+ function apply(){
+  const t=T[window.songLang]; const en=window.songLang==='en';
+  document.documentElement.lang=window.songLang; document.documentElement.dir=en?'ltr':'rtl';
+  set('.hero-badge',t.badge);
+  const h=document.querySelector('.hero h1'); if(h) h.innerHTML='<span class="hero-line">'+t.hero[0]+'</span><br><span class="hero-line hero-accent">'+t.hero[1]+'</span>';
+  set('.hero-sub-ar',t.sub); set('.card-title',t.input); set('.secure',t.protected); set('.paste',t.paste); set('#generate',t.generate); set('#status',t.start);
+  const steps=[['#s1',t.s1],['#s2',t.s2],['#s3',t.s3]]; steps.forEach(([sel,txt])=>{const e=document.querySelector(sel);if(e){const dot=e.querySelector('.dot');e.textContent='';if(dot)e.appendChild(dot);e.appendChild(document.createTextNode(' '+txt));}});
+  set('.result h3',t.ready); set('.result p',t.readySub); set('.copy',t.copy);
+  const sc=document.querySelector('.side-card'); if(sc){const title=sc.querySelector('.side-title b');const online=sc.querySelector('.side-title span');if(title)title.textContent=t.network;if(online)online.textContent=t.online;const ms=sc.querySelectorAll('.mini-stat div');if(ms.length>=2){ms[0].querySelector('small').textContent=t.status;ms[0].querySelector('strong').textContent=t.live;ms[1].querySelector('small').textContent=t.mode;ms[1].querySelector('strong').textContent=t.fast;}const sig=sc.querySelector('.metric-live span');if(sig)sig.textContent=t.signal;const f=sc.querySelectorAll('.feature');if(f.length>=3){f[0].querySelector('b').textContent=t.fastTitle;f[0].querySelector('p').textContent=t.fastText;f[1].querySelector('b').textContent=t.protectedTitle;f[1].querySelector('p').textContent=t.protectedText;f[2].querySelector('b').textContent=t.premiumTitle;f[2].querySelector('p').textContent=t.premiumText;}}
+  const control=document.querySelectorAll('.side-card')[1]; if(control){const tt=control.querySelector('.side-title b');const ts=control.querySelector('.side-title span');const pp=control.querySelector('p');const bb=control.querySelector('button');if(tt)tt.textContent=t.control;if(ts)ts.textContent=t.admin;if(pp)pp.textContent=t.adminText;if(bb)bb.textContent=t.openAdmin;}
+  set('.live',t.system); set('#langBtn',t.lang);
+ }
+ window.applyLanguage=apply;
+ window.toggleLanguage=function(){window.songLang=window.songLang==='ar'?'en':'ar';localStorage.setItem('song_lang',window.songLang);apply();if(window.songToast)window.songToast(window.songLang==='ar'?'العربي اتفعل ✓':'English enabled ✓');};
+ addEventListener('DOMContentLoaded',apply);
+})();
+</script>
+
+<style id="final-polish">
+/* Final mobile polish */
+.hero h1 .hero-line{display:block;width:fit-content;max-width:100%;margin-inline:auto;padding-inline:4px;text-align:center;overflow-wrap:normal;word-break:keep-all;}
+.hero h1{overflow:visible;}
+@media(max-width:560px){.hero h1{font-size:clamp(34px,10vw,50px);line-height:1.2}.hero h1 .hero-line{white-space:nowrap}.hero-sub-ar{max-width:340px}.hero-pills{gap:6px}.hero-pills span{font-size:8px}}
+</style>
+
+<script id="song-production-api">
+(() => {
+  const API = '/api';
+
+  async function trackVisitor() {
+    try {
+      await fetch(API + '/visit', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({page: location.pathname})
+      });
+    } catch (_) {}
+  }
+
+  async function issueServerKey(url) {
+    const res = await fetch(API + '/key', {
+      method: 'POST',
+      credentials: 'include',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({url})
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || 'KEY_REQUEST_FAILED');
+    return data;
+  }
+
+  window.songProduction = { trackVisitor, issueServerKey };
+
+  // Real visitor tracking: one anonymous cookie per browser.
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', trackVisitor, {once:true});
+  } else {
+    trackVisitor();
+  }
+})();
+</script>
+
+
+<script id="song-admin-production">
+(() => {
+  const oldOpenAdmin = window.openAdmin;
+  window.openAdmin = async function () {
+    if (oldOpenAdmin) oldOpenAdmin();
+
+    let token = sessionStorage.getItem('song_admin_token');
+    if (!token) {
+      token = prompt(window.songLang === 'en' ? 'Admin token:' : 'كلمة مرور الإدارة:');
+      if (!token) return;
+      sessionStorage.setItem('song_admin_token', token);
+    }
+
+    try {
+      const r = await fetch('/api/stats', {
+        headers: {Authorization: 'Bearer ' + token},
+        cache: 'no-store'
+      });
+      if (r.status === 401) {
+        sessionStorage.removeItem('song_admin_token');
+        throw new Error('UNAUTHORIZED');
+      }
+      const s = await r.json();
+
+      const stats = document.querySelector('.stats');
+      if (stats && !document.getElementById('statVisitors')) {
+        stats.insertAdjacentHTML('afterbegin', `
+          <div><span>VISITORS</span><strong id="statVisitors">0</strong></div>
+          <div><span>ONLINE NOW</span><strong id="statActiveVisitors">0</strong></div>
+        `);
+      }
+
+      const put = (id, value) => {
+        const e = document.getElementById(id);
+        if (e) e.textContent = value;
+      };
+      put('statVisitors', s.totalVisitors);
+      put('statActiveVisitors', s.activeVisitors);
+      put('statRequests', s.requests);
+      put('statKeys', s.keysIssued);
+      put('statBlocked', s.blocked);
+      put('statLatency', s.avgLatency + 'ms');
+
+      if (window.songToast) {
+        window.songToast(window.songLang === 'en'
+          ? 'Live analytics updated ✓'
+          : 'تم تحديث الإحصائيات الحقيقية ✓');
+      }
+    } catch (_) {
+      if (window.songToast) {
+        window.songToast(window.songLang === 'en'
+          ? 'Backend is not connected yet.'
+          : 'الـBackend لسه مش متوصل بالموقع.');
+      }
+    }
+  };
+})();
+</script>
+
+
+<script id="song-admin-refresh">
+async function refreshAdminStats(){
+  const token=sessionStorage.getItem('song_admin_token');
+  if(!token)return;
+  try{
+    const r=await fetch('/api/stats',{headers:{Authorization:'Bearer '+token},cache:'no-store'});
+    if(r.status===401){sessionStorage.removeItem('song_admin_token');return;}
+    const s=await r.json();
+    const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+    set('statVisitors',s.totalVisitors??0);
+    set('statActiveVisitors',s.activeVisitors??0);
+    set('statTodayVisitors',s.todayVisitors??0);
+    set('statRequests',s.requests??0);
+    set('statKeys',s.keysIssued??0);
+    set('statBlocked',s.blocked??0);
+    set('statLatency',(s.avgLatency??0)+'ms');
+    set('apiState','ONLINE');
+  }catch(_){
+    const e=document.getElementById('apiState');if(e)e.textContent='OFFLINE';
+  }
+}
+</script>
+
+</body></html>
